@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+set (CMAKE_CXX_STANDARD 11)
+project( recordVideo )
+find_package( OpenCV REQUIRED )
+
+set(aruco_DIR /home/kacper/Desktop/aruco/aruco-2.0.19/)
+find_package(aruco REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories(aruco_DIR )
+add_executable( recordVideo RecordVideo.cpp )
+target_link_libraries(	recordVideo ${OpenCV_LIBS} )
+target_link_libraries(	recordVideo aruco)
